@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Apomelo - 追逐
 subtitle:
 description:
 author: Apomelo
@@ -78,5 +78,5 @@ theme: aero-dual
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:nosecure/nosecure.github.io.git
+  repo: git@github.com:apomelo/apomelo.github.io.git
   branch: master
