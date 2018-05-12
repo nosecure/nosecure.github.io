@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Apomelo">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="IAX2协议文档（RFC 5456）中文翻译"/>
+  <meta property="og:title" content="Hello World"/>
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="Apomelo - 追逐"/>
   <meta property="og:type" content="article" />
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">IAX2协议文档（RFC 5456）中文翻译</p>
+          <p class="title">Hello World</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,58 +99,24 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2018-05-12</span>
-            <span class="time">22:07:39</span>
+            <span class="date">2018-03-19</span>
+            <span class="time">22:10:48</span>
           </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/protocol/">protocol</a>
-</span>
           
         </div>
         <!-- Tags -->
         
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/IAX2-RFC-5456-中文翻译/">#-IAX2 -RFC 5456 -中文翻译</a>
-
-
-          </div>
-        
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>欢迎来到我的博客，这是我第一篇自己写的博客，也是第一次用markdown语法来写，怀着有些激动的心写下这篇博客。<br></p>
-<p>在工作中接触到了IAX2协议，找遍了网上只找到了一些中文的论文。没有协议文档的具体翻译，最后只能自己看英文文档：<a href="https://tools.ietf.org/html/rfc5456" target="_blank" rel="noopener">《RFC 5456》</a>。后因需要整理IAX2文档，就开始整理一个简短的文档，但发现还有所不足，后就开始着手进行翻译，也是为之后需要中文文档的人提供一些帮助，完整的文档地址：<a href="https://download.csdn.net/download/nosecure/10410387" target="_blank" rel="noopener">IAX2协议文档（RFC 5456）中文翻译</a>。建议英文水平好的看原英文文档。<br></p>
-<p>下面为大家简单介绍一下IAX2协议：<br></p>
-<p>IAX 是 Inter-Asterisk eXchange 的缩写，也就是 Asterisk 内部交换协议。IAX最初用在Asterisk上。</p>
-<p>IAX优点：</p>
-<ol>
-<li>只用一个UDP端口：4569，来传输通信数据，包括控制信令和媒体数据等。</li>
-<li>媒体数据并不需要额外的RTP流，所以可以轻易穿越NAT。</li>
-<li>媒体数据会用一个迷你帧来发送，迷你帧帧头只有4字节，不携带控制或信令数据，有效载荷比较大。迷你帧是不可靠传输，但由于语音通话通常是实时发送的，因此丢失的帧太旧而无法重新集成到音频流中，以至于无法重新传输，所以几乎没有影响，而且每65.536秒需要重置时间标志。</li>
-<li>用二进制编码。</li>
-</ol>
-<p>IAX缺点:</p>
-<ol>
-<li>因为只用一个端口，所以容易被攻击。</li>
-<li>编解码器定义由内部定义的32位掩码控制，因此编解码器必须在协议中定义，同时编解码器的最大数量受到限制。</li>
-<li>实施问题（如果资源较少没有非常完善的库算的话）。</li>
-<li>用二进制编码。</li>
-</ol>
-<p>协议里每个字段的具体含义及详细介绍请参见：</p>
-<ul>
-<li><a href="https://tools.ietf.org/html/rfc5456" target="_blank" rel="noopener">英文文档《RFC 5456》</a></li>
-<li><a href="https://download.csdn.net/download/nosecure/10410387" target="_blank" rel="noopener">IAX2协议文档（RFC 5456）中文翻译</a></li>
-</ul>
-<p>这里给大家推荐两个iax Java库：</p>
-<ul>
-<li><a href="https://code.google.com/archive/p/njiax/downloads" target="_blank" rel="noopener">njiax</a> （实现的比较简陋，但是层次相对清晰）</li>
-<li><a href="https://github.com/misternerd/djiax" target="_blank" rel="noopener">djiax</a> （实现相对完善）</li>
-</ul>
-<p align="right">可以转载，但请标明出处</p>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
       </div>
