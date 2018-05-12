@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Apomelo">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="IAX2协议文档（RFC 5456）中文翻译"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Apomelo - 追逐"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Apomelo - 追逐" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <!-- Site Title -->
+  <title>Apomelo - 追逐</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/5a1670f9b52a83.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">IAX2协议文档（RFC 5456）中文翻译</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/apomelo">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:apomeloc@gmail.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Apomelo</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-05-12</span>
+            <span class="time">22:03:31</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/protocol/">protocol</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/IAX2-RFC-5456-中文翻译/">#-IAX2 -RFC 5456 -中文翻译</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>欢迎来到我的博客，这是我第一篇自己写的博客，也是第一次用markdown语法来写，怀着有些激动的心写下这篇博客。<br></p>
+<p>在工作中接触到了IAX2协议，找遍了网上只找到了一些中文的论文。没有协议文档的具体翻译，最后只能自己看英文文档：<a href="https://tools.ietf.org/html/rfc5456" target="_blank" rel="noopener">《RFC 5456》</a>。后因需要整理IAX2文档，就开始整理一个简短的文档，但发现还有所不足，后就开始着手进行翻译，也是为之后需要中文文档的人提供一些帮助，完整的文档地址：<a href="https://download.csdn.net/download/nosecure/10410387" target="_blank" rel="noopener">IAX2协议文档（RFC 5456）中文翻译</a>。建议英文水平好的看原英文文档。<br></p>
+<p>下面为大家简单介绍一下IAX2协议：<br></p>
+<p>IAX 是 Inter-Asterisk eXchange 的缩写，也就是 Asterisk 内部交换协议。IAX最初用在Asterisk上。</p>
+<p>IAX优点：</p>
+<ol>
+<li>只用一个UDP端口：4569，来传输通信数据，包括控制信令和媒体数据等。</li>
+<li>媒体数据并不需要额外的RTP流，所以可以轻易穿越NAT。</li>
+<li>媒体数据会用一个迷你帧来发送，迷你帧帧头只有4字节，不携带控制或信令数据，有效载荷比较大。迷你帧是不可靠传输，但由于语音通话通常是实时发送的，因此丢失的帧太旧而无法重新集成到音频流中，以至于无法重新传输，所以几乎没有影响，而且每65.536秒需要重置时间标志。</li>
+<li>用二进制编码。</li>
+</ol>
+<p>IAX缺点:</p>
+<ol>
+<li>因为只用一个端口，所以容易被攻击。</li>
+<li>编解码器定义由内部定义的32位掩码控制，因此编解码器必须在协议中定义，同时编解码器的最大数量受到限制。</li>
+<li>实施问题（如果资源较少没有非常完善的库算的话）。</li>
+<li>用二进制编码。</li>
+</ol>
+<p>协议里每个字段的具体含义及详细介绍请参见：</p>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc5456" target="_blank" rel="noopener">英文文档《RFC 5456》</a></li>
+<li><a href="https://download.csdn.net/download/nosecure/10410387" target="_blank" rel="noopener">IAX2协议文档（RFC 5456）中文翻译</a></li>
+</ul>
+<p>这里给大家推荐两个iax Java库：</p>
+<ul>
+<li><a href="https://code.google.com/archive/p/njiax/downloads" target="_blank" rel="noopener">njiax</a> （实现的比较简陋，但是层次相对清晰）</li>
+<li><a href="https://github.com/misternerd/djiax" target="_blank" rel="noopener">djiax</a> （实现相对完善）</li>
+</ul>
+<p align="right">可以转载，但请标明出处</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
