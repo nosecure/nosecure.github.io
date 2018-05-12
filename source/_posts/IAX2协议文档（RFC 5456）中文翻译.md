@@ -1,5 +1,12 @@
 ---
 title: IAX2协议文档（RFC 5456）中文翻译
+data: 2018-05-12
+categories: protocol
+tags:
+    - IAX2
+    - RFC 5456
+    - 中文翻译
+comments: true
 ---
 
 欢迎来到我的博客，这是我第一篇自己写的博客，也是第一次用markdown语法来写，怀着有些激动的心写下这篇博客。<br>

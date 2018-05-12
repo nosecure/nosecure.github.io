@@ -14,7 +14,8 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+#permalink: :year/:month/:day/:title/
+permalink: posts/:category/:year-:month-:day/:title/
 permalink_defaults:
 
 # Directory
@@ -55,6 +56,10 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+		编程: programming
+		协议: protocol
+    生活: life
+    其他: other
 tag_map:
 
 # Date / Time format
