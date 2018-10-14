@@ -5,14 +5,14 @@
 # Site
 title: Apomelo - 追逐
 subtitle:
-description:
+description: 我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。
 author: Apomelo
-language:
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.apomelo.cc
 root: /
 #permalink: :year/:month/:day/:title/
 permalink: posts/:category/:year-:month-:day/:title/
