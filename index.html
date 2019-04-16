@@ -15,10 +15,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -46,6 +44,16 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.0">
 
 
 
@@ -54,44 +62,24 @@
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
-
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.4.2">
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'A3LWYBODE0',
+      apiKey: 'c40595ca0a82310430032a8bc32214a2',
+      indexName: 'apomelo',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -117,16 +105,17 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Apomelo - 追逐" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Apomelo - 追逐" type="application/atom+xml">
 
 
 
+  
+  
+  <link rel="canonical" href="http://www.apomelo.cc/">
 
-  <link rel="canonical" href="http://www.apomelo.cc/"/>
 
 
-
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -138,14 +127,29 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127412653-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-127412653-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-127412653-1');
+    }
+  </script>
 
-  gtag('config', 'UA-127412653-1');
-</script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6c01cfc90b27c8f2cf8c97e38b2f117c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -153,35 +157,33 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -192,9 +194,9 @@
   page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -204,6 +206,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -227,25 +230,78 @@
         
           
           <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
   </li>
 
       
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
       
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -282,20 +338,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/program/2019-02-12/前端笔记/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apomelo">
       <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Apomelo - 追逐">
     </span>
 
@@ -306,9 +362,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/program/2019-02-12/前端笔记/" itemprop="url">
-                  前端笔记
-                </a>
+                
+                <a href="/posts/program/2019-02-12/前端笔记/" class="post-title-link" itemprop="url">前端笔记</a>
               
             
           </h1>
@@ -356,7 +411,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -367,7 +422,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/program/" itemprop="url" rel="index"><span itemprop="name">program</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/program/" itemprop="url" rel="index"><span itemprop="name">program</span></a></span>
 
                 
                 
@@ -376,6 +431,7 @@
           
 
           
+            
             
           
 
@@ -403,19 +459,23 @@
       
         
           
-          URL前端访问后端地址，带有小数点导致参数不全例：
+            <p>
+              URL前端访问后端地址，带有小数点导致参数不全例：
 
 https://localhost:3000/download/voice.wav
 https://localhost:3000/download/voice.wav?parameter=1
 
 会忽略小数点之后的内容。原因：url中含有小数点，浏
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/program/2019-02-12/前端笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/program/2019-02-12/前端笔记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -429,6 +489,9 @@ https://localhost:3000/download/voice.wav?parameter=1
 
     
 
+    
+      
+    
     
 
     
@@ -463,20 +526,20 @@ https://localhost:3000/download/voice.wav?parameter=1
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/program/2018-10-28/Java与C++通过Jni互调/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apomelo">
       <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Apomelo - 追逐">
     </span>
 
@@ -487,9 +550,8 @@ https://localhost:3000/download/voice.wav?parameter=1
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/program/2018-10-28/Java与C++通过Jni互调/" itemprop="url">
-                  Java与C++通过Jni互调
-                </a>
+                
+                <a href="/posts/program/2018-10-28/Java与C++通过Jni互调/" class="post-title-link" itemprop="url">Java与C++通过Jni互调</a>
               
             
           </h1>
@@ -537,7 +599,7 @@ https://localhost:3000/download/voice.wav?parameter=1
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -548,7 +610,7 @@ https://localhost:3000/download/voice.wav?parameter=1
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/program/" itemprop="url" rel="index"><span itemprop="name">program</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/program/" itemprop="url" rel="index"><span itemprop="name">program</span></a></span>
 
                 
                 
@@ -557,6 +619,7 @@ https://localhost:3000/download/voice.wav?parameter=1
           
 
           
+            
             
           
 
@@ -584,16 +647,20 @@ https://localhost:3000/download/voice.wav?parameter=1
       
         
           
-          方法详解
+            <p>
+              方法详解
 jbyte  GetByteArrayElements(jbyteArray array, jboolean isCopy);用于获取传递进去的jbyteArray的数据，返回值为 jbyte , 对 jbyte  进行修改，不会影响原数据值。
 void ReleaseByteArrayE
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/program/2018-10-28/Java与C++通过Jni互调/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/program/2018-10-28/Java与C++通过Jni互调/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -607,6 +674,9 @@ void ReleaseByteArrayE
 
     
 
+    
+      
+    
     
 
     
@@ -641,20 +711,20 @@ void ReleaseByteArrayE
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/protocol/2018-10-21/H323笔记/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apomelo">
       <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Apomelo - 追逐">
     </span>
 
@@ -665,9 +735,8 @@ void ReleaseByteArrayE
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/protocol/2018-10-21/H323笔记/" itemprop="url">
-                  H.323协议研究笔记
-                </a>
+                
+                <a href="/posts/protocol/2018-10-21/H323笔记/" class="post-title-link" itemprop="url">H.323协议研究笔记</a>
               
             
           </h1>
@@ -715,7 +784,7 @@ void ReleaseByteArrayE
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -726,7 +795,7 @@ void ReleaseByteArrayE
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/protocol/" itemprop="url" rel="index"><span itemprop="name">protocol</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/protocol/" itemprop="url" rel="index"><span itemprop="name">protocol</span></a></span>
 
                 
                 
@@ -735,6 +804,7 @@ void ReleaseByteArrayE
           
 
           
+            
             
           
 
@@ -762,15 +832,19 @@ void ReleaseByteArrayE
       
         
           
-          H323库、Gungk、FreeSwitch安装遇到的问题安装环境&emsp;CentOS Linux release 7.3.1611 (Core)
+            <p>
+              H323库、Gungk、FreeSwitch安装遇到的问题安装环境&emsp;CentOS Linux release 7.3.1611 (Core)
 ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingPTLib
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/protocol/2018-10-21/H323笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/protocol/2018-10-21/H323笔记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -784,6 +858,9 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
     
 
+    
+      
+    
     
 
     
@@ -818,20 +895,20 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/protocol/2018-05-12/IAX2协议文档（RFC 5456）中文翻译/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apomelo">
       <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Apomelo - 追逐">
     </span>
 
@@ -842,9 +919,8 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/protocol/2018-05-12/IAX2协议文档（RFC 5456）中文翻译/" itemprop="url">
-                  IAX2协议文档（RFC 5456）中文翻译
-                </a>
+                
+                <a href="/posts/protocol/2018-05-12/IAX2协议文档（RFC 5456）中文翻译/" class="post-title-link" itemprop="url">IAX2协议文档（RFC 5456）中文翻译</a>
               
             
           </h1>
@@ -892,7 +968,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -903,7 +979,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/protocol/" itemprop="url" rel="index"><span itemprop="name">protocol</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/protocol/" itemprop="url" rel="index"><span itemprop="name">protocol</span></a></span>
 
                 
                 
@@ -912,6 +988,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
           
 
           
+            
             
           
 
@@ -939,15 +1016,19 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
       
         
           
-          欢迎来到我的博客，这是我第一篇自己写的博客，也是第一次用markdown语法来写，怀着有些激动的心写下这篇博客。
+            <p>
+              欢迎来到我的博客，这是我第一篇自己写的博客，也是第一次用markdown语法来写，怀着有些激动的心写下这篇博客。
 在工作中接触到了IAX2协议，找遍了网上只找到了一些中文的论文。没有协议文档的具体翻译，最后只能自己看英文文档：《RFC 5456》。后因需要整理IAX2文档，就开始整理一个简短的文档，
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/protocol/2018-05-12/IAX2协议文档（RFC 5456）中文翻译/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/protocol/2018-05-12/IAX2协议文档（RFC 5456）中文翻译/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -961,6 +1042,9 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
     
 
+    
+      
+    
     
 
     
@@ -995,20 +1079,20 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/uncategorized/2018-03-19/hello-world/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apomelo">
       <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Apomelo - 追逐">
     </span>
 
@@ -1019,9 +1103,8 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/uncategorized/2018-03-19/hello-world/" itemprop="url">
-                  Hello World
-                </a>
+                
+                <a href="/posts/uncategorized/2018-03-19/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -1056,6 +1139,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
           
             
+            
           
 
           
@@ -1082,14 +1166,18 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/uncategorized/2018-03-19/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/uncategorized/2018-03-19/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1103,6 +1191,9 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
     
 
+    
+      
+    
     
 
     
@@ -1148,19 +1239,18 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Apomelo</p>
-              <p class="site-description motion-element" itemprop="description">我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。</p>
+              <div class="site-description motion-element" itemprop="description">我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。</div>
           </div>
 
           
@@ -1242,22 +1332,35 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/apomelo" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/apomelo" title="GitHub &rarr; https://github.com/apomelo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:apomeloc@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:apomeloc@gmail.com" title="E-Mail &rarr; mailto:apomeloc@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                 </span>
               
             </div>
           
 
-          
           
 
           
@@ -1269,7 +1372,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1277,6 +1380,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
     </div>
   </aside>
+  
 
 
         
@@ -1297,9 +1401,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 </div>
 
 
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.6.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
@@ -1307,7 +1409,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
 
 
 
@@ -1317,15 +1419,23 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1333,9 +1443,34 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
 
 
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500678931");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
 
 
 
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66391061";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1277140459&web_id=1277140459"></script>
+  </div>
 
 
 
@@ -1351,7 +1486,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
     
 
     
-	
+
     
 
     
@@ -1359,7 +1494,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1391,27 +1526,21 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+  <script src="/js/utils.js?v=7.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+  <script src="/js/motion.js?v=7.1.0"></script>
 
 
 
@@ -1419,9 +1548,9 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+  <script src="/js/affix.js?v=7.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
 
 
 
@@ -1430,29 +1559,7 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
+  <script src="/js/next-boot.js?v=7.1.0"></script>
 
 
   
@@ -1463,7 +1570,42 @@ ptlib-2_10_9_2安装教程：http://wiki.opalvoip.org/index.php?n=Main.BuildingP
 
   
 
+
+
   
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
