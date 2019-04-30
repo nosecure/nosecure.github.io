@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'A3LWYBODE0',
+      apiKey: 'c40595ca0a82310430032a8bc32214a2',
+      indexName: 'apomelo',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Web技术发展World Wide Web（万维网），简称Web，是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。 web形式发展先后经历了web 1.0 —&amp;gt; web 2.0 —&amp;gt; web 3.0 web 1.0开始于1994年，主要是静态的HTML页面发布信息，其特点是：信息杂乱无序，只满足了人们对信息的搜索、传递需求。 web 2.0开始于2004">
+<meta name="keywords" content="rest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REST软件架构">
+<meta property="og:url" content="http://www.apomelo.cc/posts/architecture/2019-04-26/rest软件架构/index.html">
+<meta property="og:site_name" content="Apomelo - 追逐">
+<meta property="og:description" content="Web技术发展World Wide Web（万维网），简称Web，是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。 web形式发展先后经历了web 1.0 —&amp;gt; web 2.0 —&amp;gt; web 3.0 web 1.0开始于1994年，主要是静态的HTML页面发布信息，其特点是：信息杂乱无序，只满足了人们对信息的搜索、传递需求。 web 2.0开始于2004">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-29T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="REST软件架构">
+<meta name="twitter:description" content="Web技术发展World Wide Web（万维网），简称Web，是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。 web形式发展先后经历了web 1.0 —&amp;gt; web 2.0 —&amp;gt; web 3.0 web 1.0开始于1994年，主要是静态的HTML页面发布信息，其特点是：信息杂乱无序，只满足了人们对信息的搜索、传递需求。 web 2.0开始于2004">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.apomelo.cc/posts/architecture/2019-04-26/rest软件架构/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>REST软件架构 | Apomelo - 追逐</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-127412653-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-127412653-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6c01cfc90b27c8f2cf8c97e38b2f117c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Apomelo - 追逐</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.apomelo.cc/posts/architecture/2019-04-26/rest软件架构/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Apomelo">
+      <meta itemprop="description" content="我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apomelo - 追逐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">REST软件架构
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-26T00:00:00+08:00">2019-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-30 00:00:00" itemprop="dateModified" datetime="2019-04-30T00:00:00+08:00">2019-04-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/architecture/" itemprop="url" rel="index"><span itemprop="name">architecture</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Web技术发展"><a href="#Web技术发展" class="headerlink" title="Web技术发展"></a>Web技术发展</h4><p>World Wide Web（万维网），简称Web，是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。</p>
+<h5 id="web形式发展"><a href="#web形式发展" class="headerlink" title="web形式发展"></a>web形式发展</h5><p>先后经历了web 1.0 —&gt; web 2.0 —&gt; web 3.0</p>
+<p><strong>web 1.0</strong><br>开始于1994年，主要是静态的HTML页面发布信息，其特点是：信息杂乱无序，只满足了人们对信息的搜索、传递需求。</p>
+<p><strong>web 2.0</strong><br>开始于2004年，在web 2.0中，软件被当成一种服务，Internet从一系列网站演化成一个成熟的为最终用户提供网络应用的服务平台，强调用户的参与、在线的网络协作、数据储存的网络化、社会关系网络、RSS应用以及文件的共享等成为了web 2.0发展的主要支撑和表现。web 2.0模式大大激发了创造和创新的积极性，使Internet重新变得生机勃勃。web 2.0的典型应用包括Blog、Wiki、RSS、Tag、SNS、P2P、IM等。其特点是：更加注重交互性；核心是指导思想；与1.0没有绝对的界限。</p>
+<p><strong>web 3.0</strong><br>正在步入3.0，其特点是：智能化及个性化搜索引擎；数据的自由整合与有效聚合；适合多种终端平台，实现信息服务的普适性。</p>
+<h6 id="web开发技术几个阶段"><a href="#web开发技术几个阶段" class="headerlink" title="web开发技术几个阶段"></a>web开发技术几个阶段</h6><ol>
+<li><p>静态内容阶段<br>这个阶段web服务器作为共享文件服务器，存的大多是静态的HTML文档。</p>
+</li>
+<li><p>CGI程序阶段<br>这个阶段web服务器增加了一些编程API，通过API可以向客户端提供一些动态变化的内容。通信使用CGI（Common Gateway Interface）协议。</p>
+</li>
+<li><p>脚本语言阶段<br>这个阶段服务端出现ASP、PHP、JSP等，浏览器端出现Java Applet、Js等，提供了更加丰富的内容。</p>
+</li>
+<li><p>瘦客户端应用阶段<br>这个阶段出现了MVC模式，服务器端生成全部的动态内容。</p>
+</li>
+<li><p>RIA应用阶段<br>这个阶段出现了大量的RIA（Rich Internet Applications）技术，极大的完善了Web的用户体验，比如Ajax。</p>
+</li>
+<li><p>移动Web应用阶段<br>这个阶段出现了大量面向移动设备的Web应用技术，除了IOS、Android等操作系统平台原声的开发技术外，基于H5的开发技术越来越流行。</p>
+</li>
+</ol>
+<h5 id="web技术结构基石"><a href="#web技术结构基石" class="headerlink" title="web技术结构基石"></a>web技术结构基石</h5><ol>
+<li><p>URI</p>
+</li>
+<li><p>HTTP</p>
+</li>
+<li><p>HTML</p>
+</li>
+<li><p>MIME</p>
+</li>
+</ol>
+<h4 id="REST介绍"><a href="#REST介绍" class="headerlink" title="REST介绍"></a>REST介绍</h4><p>REST（Representational State Transfer, 表现层状态转换）软件架构是由Roy Thomas Fielding博士在2000年首次提出的。他为我们描绘了开发基于互联网的网络软件的蓝图。REST软件架构是一个抽象的概念，是一种为了实现这一互联网的超媒体分布式系统的行动指南。</p>
+<p>REST是目前世界上最成功的分布式应用架构风格（Web），<br>REST是所有Web应用都应该遵守的架构指导原则，违反了REST<br>的指导原则，网站应用功能仍能实现，但会付出很多代价，特别是<br>大流量的网站。</p>
+<p>在不同阶段，REST给我们不同的印象：</p>
+<ul>
+<li>没接触REST时，会认为REST是一个技术</li>
+<li>没有深入理解REST，日常使用仅限于修改REST风格的URI、增加PUT、DELETE操作等，会认为REST是一种具体的规范</li>
+<li>深入理解之后，会发现REST是一种内含丰富的架构风格</li>
+</ul>
+<h4 id="REST的五个关键词"><a href="#REST的五个关键词" class="headerlink" title="REST的五个关键词"></a>REST的五个关键词</h4><h5 id="1-资源（Resource）"><a href="#1-资源（Resource）" class="headerlink" title="1. 资源（Resource）"></a>1. 资源（Resource）</h5><p>资源是一种看待服务器的方式，服务器就是由很多离散的资源组成。资源是以名词为核心来组织的，首先关注的应该是名词。一个资源由一个或多个URI来标识，URI也即是资源的名称，客户端对某个资源感兴趣即通过URI来交互。</p>
+<h5 id="2-资源的表述（Representation）"><a href="#2-资源的表述（Representation）" class="headerlink" title="2. 资源的表述（Representation）"></a>2. 资源的表述（Representation）</h5><p>资源表述是指某一个资源某个时刻的状态描述，用于在客户端和服务端转移。例如：HTML/XML/JSON/图片/音频都是资源表述的格式。在通常的REST开发下，一般使用JSON作为HTTP请求响应的资源表述。</p>
+<h5 id="3-状态转移（State-Transfer）"><a href="#3-状态转移（State-Transfer）" class="headerlink" title="3. 状态转移（State Transfer）"></a>3. 状态转移（State Transfer）</h5><p>状态转移是指通过转移和操作资源的表述，来实现操作资源的目的。在REST开发下，通常使用HTTP的GET/POST/PUT/DELETE方法操作。</p>
+<h5 id="4-统一接口（Uniform-Interface）"><a href="#4-统一接口（Uniform-Interface）" class="headerlink" title="4. 统一接口（Uniform Interface）"></a>4. 统一接口（Uniform Interface）</h5><p><span id="统一接口"></span>REST要求必须使用统一的接口来对资源进行操作。</p>
+<p>REST要求对资源执行的操作，操作语义必须在HTPP消息体之前的部分完全表达，不能将操作语义封装到消息体内部。这样做为了提高交互可见性，便于通信的中间件实现缓存和安全审核。</p>
+<p>REST是不依赖于任何协议的，但目前几乎所有的REST都是基于HTTP协议的。接口应该使用标准的HTTP方法如GET，PUT和POST，并遵循这些方法的语义。</p>
+<p>非REST的接口，1000个人能写出1000个接口，例如对机器人的操作：<br>（1）/api/findRobots<br>（2）/api/robots/select<br>REST API：<br>&emsp;GET    /rest/robots/{id} 查询一个机器人<br>&emsp;POST   /rest/robots      新建一个机器人<br>&emsp;PUT    /rest/robots/{id} 更新一个机器人<br>&emsp;DELETE /rest/robots/{id} 删除一个机器人</p>
+<p><strong>统一接口主要包括：</strong><br>（1）7个HTTP方法：GET/POST/PUT/DELETE/PATCH/HEAD/OPTIONS<br>（2）HTTP头信息（可自定义）<br>（3）HTTP响应状态代码（可自定义）<br>（4）一套标准的内容协商机制<br>（5）一套标准的缓存机制<br>（6）一套标准的客户端身份认证机制</p>
+<p><strong>HTTP方法幂等性</strong><br>幂等是指一次或多次请求一个资源的时候，应该具有相同的副作用。<br><strong>HTTP方法安全性</strong><br>安全是指对原有资源没有任何影响，安全性不代表请求一定不产生副作用。比如GET请求增加计数器，这种产生的副作用是服务端自作主张，服务端在设计的时候应该不让副作用太大，客户端可以这些请求不会产生副作用。</p>
+<p>GET: 安全且幂等，用来获取资源表示<br>POST: 不安全且不幂等，用来创建资源或用于部分更新资源<br>PUT: 不安全且幂等，用替换的方式更新资源<br>DELETE: 不安全且幂等，用于删除一个资源</p>
+<p>PUT和POST的区别：<br>PUT和POST最大的区别是PUT是幂等的，此外PUT需要完成的URI。<br>PUT    /rest/robots/        是不会成功的，URI不能定位到具体的资源<br>PUT    /rest/robots/{1234}  是会成功的，如果存在，则更新这个robots</p>
+<h5 id="5-超文本驱动（Hypertext-Driven）"><a href="#5-超文本驱动（Hypertext-Driven）" class="headerlink" title="5. 超文本驱动（Hypertext Driven）"></a>5. 超文本驱动（Hypertext Driven）</h5><p>2008.10.28Fielding博士针对REST的滥用，发表了《REST API 必须是超文本驱动的》。他指出除非应用状态引擎是超文本驱动的，否则它就不是RESTFUL。</p>
+<p>超文本驱动是客户端不再需要将某些接口的 URI 硬编码在代码中，唯一需要存储的只是 API 的 HOST 地址，能够非常有效的降低客户端与服务端之间的耦合，服务端对 URI 的任何改动都不会影响到客户端的稳定。</p>
+<h4 id="REST架构约束"><a href="#REST架构约束" class="headerlink" title="REST架构约束"></a>REST架构约束</h4><h5 id="1-客户-服务器（Client-Server）"><a href="#1-客户-服务器（Client-Server）" class="headerlink" title="1. 客户-服务器（Client-Server）"></a>1. 客户-服务器（Client-Server）</h5><p>这个约束是基于客户端-服务器架构背后的原则—–关注点分离。通过分离用户界面和数据存储这两个关注点，提高了用户界面跨平台的可能性，通过简化服务器组件提高了其伸缩性。</p>
+<h5 id="2-无状态（Stateless）"><a href="#2-无状态（Stateless）" class="headerlink" title="2. 无状态（Stateless）"></a>2. 无状态（Stateless）</h5><p>服务器不保存除单次请求外的通信状态，REST要求状态要么被放入资源状态中，要么保存在客户端，从客户端发出的每个请求都包含了服务端所必须的信息。</p>
+<p>无状态约束使服务器的变化对客户端不可见，因而在连续的请求中，客户端并不依赖于同一台服务器，一台服务器坏掉了，客户端感知不到。</p>
+<h5 id="3-可缓存（Cachable）"><a href="#3-可缓存（Cachable）" class="headerlink" title="3. 可缓存（Cachable）"></a>3. 可缓存（Cachable）</h5><p>互联网中的客户端和中间层服务器可以缓存响应。</p>
+<p>因此响应必须直接或间接定义自身是否可被缓存，以免客户端使用过期的响应数据来发送其它请求。</p>
+<p>良好的缓存策略可以有效减少客户端-服务器之间的交互，从而进一步提高系统的可伸缩性和性能。</p>
+<h5 id="4-分层系统-（Layered-system）"><a href="#4-分层系统-（Layered-system）" class="headerlink" title="4. 分层系统 （Layered system）"></a>4. 分层系统 （Layered system）</h5><p>通过限制组件的行为（即，每个组件只能“看到”与其交互的紧邻层），将架构分解为若干等级的层。</p>
+<p>客户端通常无法判断它是否是直接连接到后端服务器，还是中间服务器。</p>
+<p>中间服务器可通过启用负载平衡，并通过提供共享高速缓存来提高系统的可扩展性。</p>
+<p>当然也可以强制执行安全政策。</p>
+<h5 id="5-统一接口-（Unitform-interface）"><a href="#5-统一接口-（Unitform-interface）" class="headerlink" title="5. 统一接口 （Unitform interface）"></a>5. 统一接口 （Unitform interface）</h5><p><a href="#统一接口">如上</a><br>(1) 资源标志的唯一性<br>(2) 资源的自描述性<br>(3) 超媒体驱动型<br>(4) 消息的自描述性</p>
+<h5 id="6-按需代码（可选）"><a href="#6-按需代码（可选）" class="headerlink" title="6. 按需代码（可选）"></a>6. 按需代码（可选）</h5><p>支持通过下载并执行一些代码（例如Java Applet、Flash或JavaScript），对客户端的功能进行扩展。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
+<li><a href="https://baike.baidu.com/item/Web/150564" target="_blank" rel="noopener">https://baike.baidu.com/item/Web/150564</a></li>
+<li><a href="https://baike.baidu.com/item/REST%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/2018579?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/REST%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/2018579?fr=aladdin</a></li>
+<li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">Roy Thomas Fielding博士论文地址</a></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rest/" rel="tag"># rest</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/java/2019-04-19/基础算法专题/" rel="next" title="基础算法专题">
+                <i class="fa fa-chevron-left"></i> 基础算法专题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/other/2019-04-29/杂七杂八笔记/" rel="prev" title="杂七杂八笔记">
+                杂七杂八笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Apomelo</p>
+              <div class="site-description motion-element" itemprop="description">我有一壶酒，足以慰风尘。尽倾江海里，赠饮天下人。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/apomelo" title="GitHub &rarr; https://github.com/apomelo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:apomeloc@gmail.com" title="E-Mail &rarr; mailto:apomeloc@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web技术发展"><span class="nav-number">1.</span> <span class="nav-text">Web技术发展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#web形式发展"><span class="nav-number">1.1.</span> <span class="nav-text">web形式发展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#web开发技术几个阶段"><span class="nav-number">1.1.1.</span> <span class="nav-text">web开发技术几个阶段</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#web技术结构基石"><span class="nav-number">1.2.</span> <span class="nav-text">web技术结构基石</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REST介绍"><span class="nav-number">2.</span> <span class="nav-text">REST介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REST的五个关键词"><span class="nav-number">3.</span> <span class="nav-text">REST的五个关键词</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-资源（Resource）"><span class="nav-number">3.1.</span> <span class="nav-text">1. 资源（Resource）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-资源的表述（Representation）"><span class="nav-number">3.2.</span> <span class="nav-text">2. 资源的表述（Representation）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-状态转移（State-Transfer）"><span class="nav-number">3.3.</span> <span class="nav-text">3. 状态转移（State Transfer）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-统一接口（Uniform-Interface）"><span class="nav-number">3.4.</span> <span class="nav-text">4. 统一接口（Uniform Interface）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-超文本驱动（Hypertext-Driven）"><span class="nav-number">3.5.</span> <span class="nav-text">5. 超文本驱动（Hypertext Driven）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REST架构约束"><span class="nav-number">4.</span> <span class="nav-text">REST架构约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-客户-服务器（Client-Server）"><span class="nav-number">4.1.</span> <span class="nav-text">1. 客户-服务器（Client-Server）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-无状态（Stateless）"><span class="nav-number">4.2.</span> <span class="nav-text">2. 无状态（Stateless）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-可缓存（Cachable）"><span class="nav-number">4.3.</span> <span class="nav-text">3. 可缓存（Cachable）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-分层系统-（Layered-system）"><span class="nav-number">4.4.</span> <span class="nav-text">4. 分层系统 （Layered system）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-统一接口-（Unitform-interface）"><span class="nav-number">4.5.</span> <span class="nav-text">5. 统一接口 （Unitform interface）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-按需代码（可选）"><span class="nav-number">4.6.</span> <span class="nav-text">6. 按需代码（可选）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Apomelo</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500678931");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66391061";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1277140459&web_id=1277140459"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
